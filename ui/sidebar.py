@@ -1,31 +1,29 @@
 import customtkinter as ctk
 
-
 class Sidebar(ctk.CTkFrame):
 
-    def __init__(self, master):
+    def __init__(self, master, callback):
         super().__init__(master, width=220)
 
         self.pack_propagate(False)
+        self.callback = callback
 
         ctk.CTkLabel(
             self,
-            text="MENU",
-            font=("Arial", 22, "bold")
+            text="AI VIDEO STUDIO",
+            font=("Arial",20,"bold")
         ).pack(pady=20)
 
-        buttons = [
+        pages = [
             "Dashboard",
             "Projects",
             "Prompt",
-            "Characters",
-            "Images",
-            "Videos",
-            "Settings"
+            "Characters"
         ]
 
-        for item in buttons:
+        for page in pages:
             ctk.CTkButton(
                 self,
-                text=item
+                text=page,
+                command=lambda p=page: self.callback(p)
             ).pack(fill="x", padx=15, pady=5)
