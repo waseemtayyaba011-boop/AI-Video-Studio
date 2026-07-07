@@ -1,0 +1,7 @@
+customtkinter
+Pillow
+python-dotenv
+requests
+opencv-python
+moviepy
+numpy
